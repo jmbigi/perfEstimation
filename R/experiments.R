@@ -68,7 +68,8 @@ perfEstimation <- function(tasks,workflows,estTask,...) {
       functocall
       funcargs <- c(list(workflows[[s]],
                     tasks[[d]],
-                    estTask)
+                    estTask),list(...)
+                   )
       funcargs
       taskRes[[s]] <- do.call(functocall
                               , funcargs
