@@ -65,12 +65,12 @@ perfEstimation <- function(tasks,workflows,estTask,...) {
                       MonteCarlo='mcEstimates',
                       LOOCV='loocvEstimates'
                       )
-      cat('\n\n Function: ' , functocall)
+      cat('\n\n Function: ' , as.character(functocall))
       funcargs <- c(list(workflows[[s]],
                     tasks[[d]],
                     estTask),list(...)
                    )
-      cat('\n\n args: ' , funcargs)
+      cat('\n\n args: ' , as.character(funcargs))
       taskRes[[s]] <- do.call(functocall
                               , funcargs
                              )
