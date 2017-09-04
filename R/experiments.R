@@ -21,7 +21,7 @@
 ## Luis Torgo, Aug 2013
 ## ==============================================================
 ##
-performanceEstimation <- function(tasks,workflows,estTask,...) {
+perfEstimation <- function(tasks,workflows,estTask,...) {
 
   if (!is(tasks,'list')) tasks <- list(tasks)
   if (!is(workflows,'list')) workflows <- list(workflows)
