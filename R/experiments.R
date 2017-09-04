@@ -58,19 +58,21 @@ perfEstimation <- function(tasks,workflows,estTask,...) {
 
       cat('\n\n++ MODEL/WORKFLOW ::',workflows[[s]]@name,"\n")
       
-      taskRes[[s]] <- do.call(
-               switch(class(estTask@method),
+      functocall <- switch(class(estTask@method),
                       CV='cvEstimates',
                       Holdout='hldEstimates',
                       Bootstrap='bootEstimates',
                       MonteCarlo='mcEstimates',
                       LOOCV='loocvEstimates'
-                      ),
-
-               c(list(workflows[[s]],
+                      )
+      functocall
+      funcargs <- c(list(workflows[[s]],
                     tasks[[d]],
-                    estTask),list(...))
-                         )
+                    estTask)
+      funcargs
+      taskRes[[s]] <- do.call(functocall
+                              , funcargs
+                             )
     }
     
     allRes[[d]] <- taskRes
