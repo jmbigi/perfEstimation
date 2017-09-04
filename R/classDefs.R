@@ -51,8 +51,8 @@ PredTask <- function(form,data,taskName=NULL,type=NULL,copy=FALSE) {
       data <- as.data.frame(eval(data,envir=eval.env)) # this was added because of dplyr tbl_df that were giving probls when copy=T
   }
 
-  if (inherits(tryCatch(mf <- model.frame(form, eval(data, envir = eval.env), na.action = NULL), error = function(e) TRUE), "logical"))
-    stop('\nInvalid formula for the given data frame.\n', call. = FALSE)
+#  if (inherits(tryCatch(mf <- model.frame(form, eval(data, envir = eval.env), na.action = NULL), error = function(e) TRUE), "logical"))
+#    stop('\nInvalid formula for the given data frame.\n', call. = FALSE)
 
   if (is.null(type)) {
       taskType <- if (is.factor(eval(data,envir=eval.env)[[tgt]])) "class" else "regr"
